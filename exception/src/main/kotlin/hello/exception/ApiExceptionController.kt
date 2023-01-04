@@ -1,5 +1,6 @@
 package hello.exception
 
+import hello.exception.exception.UserException
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -19,6 +20,10 @@ class ApiExceptionController {
 
         if (id == "bad") {
             throw IllegalArgumentException("잘못된 입력 값")
+        }
+
+        if (id == "user-ex") {
+            throw UserException("사용자 오류")
         }
 
         return MemberDto(id, "hello $id")
