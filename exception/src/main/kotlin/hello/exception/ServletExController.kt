@@ -11,6 +11,11 @@ class ServletExController {
         throw RuntimeException("예외 발생!")
     }
 
+    @GetMapping("/error-400")
+    fun error400(response: HttpServletResponse) {
+        response.sendError(400, "400 오류")
+    }
+
     @GetMapping("/error-404")
     fun error404(response: HttpServletResponse) {
         response.sendError(404, "404 오류")
