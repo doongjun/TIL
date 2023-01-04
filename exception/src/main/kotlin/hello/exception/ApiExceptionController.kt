@@ -10,9 +10,15 @@ class ApiExceptionController {
     private val log = LoggerFactory.getLogger(javaClass)
 
     @GetMapping("/api/members/{id}")
-    fun getMember(@PathVariable id: String): MemberDto {
+    fun getMember(
+        @PathVariable id: String
+    ): MemberDto {
         if (id == "ex") {
             throw RuntimeException("잘못된 사용자")
+        }
+
+        if (id == "bad") {
+            throw IllegalArgumentException("잘못된 입력 값")
         }
 
         return MemberDto(id, "hello $id")
