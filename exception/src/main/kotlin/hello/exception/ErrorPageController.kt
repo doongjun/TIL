@@ -8,6 +8,15 @@ import javax.servlet.http.HttpServletResponse
 
 @Controller
 class ErrorPageController {
+    companion object {
+        const val ERROR_EXCEPTION = "javax.servlet.error.exception"
+        const val ERROR_EXCEPTION_TYPE = "javax.servlet.error.exception_type"
+        const val ERROR_MESSAGE = "javax.servlet.error.message"
+        const val ERROR_REQUEST_URI = "javax.servlet.error.request_uri"
+        const val ERROR_SERVLET_NAME = "javax.servlet.error.servlet_name"
+        const val ERROR_STATUS_CODE = "javax.servlet.error.status_code"
+    }
+
     private val log = LoggerFactory.getLogger(javaClass)
 
     @RequestMapping("/error-page/404")
@@ -31,12 +40,4 @@ class ErrorPageController {
         log.info("ERROR_STATUS_CODE: ex= {}", request.getAttribute(ERROR_STATUS_CODE))
     }
 
-    companion object {
-        const val ERROR_EXCEPTION = "javax.servlet.error.exception"
-        const val ERROR_EXCEPTION_TYPE = "javax.servlet.error.exception_type"
-        const val ERROR_MESSAGE = "javax.servlet.error.message"
-        const val ERROR_REQUEST_URI = "javax.servlet.error.request_uri"
-        const val ERROR_SERVLET_NAME = "javax.servlet.error.servlet_name"
-        const val ERROR_STATUS_CODE = "javax.servlet.error.status_code"
-    }
 }
