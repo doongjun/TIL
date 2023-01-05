@@ -1,5 +1,6 @@
 package hello.exception
 
+import hello.exception.dto.MemberDto
 import hello.exception.exception.BadRequestException
 import hello.exception.exception.UserException
 import org.slf4j.LoggerFactory
@@ -49,8 +50,3 @@ class ApiExceptionController {
     }
 
 }
-
-data class MemberDto(
-    val memberId: String,
-    val name: String
-)
