@@ -12,7 +12,8 @@ class DestinationService(
 ) {
     fun getDestinations(): List<DestinationDto> = destinationRepository.findAll().map { DestinationDto(it) }
 
-    fun findDestinationById(id: Long): DestinationDto? = destinationRepository.findById(id).orElse(null)?.let { DestinationDto(it) }
+    fun findDestinationById(id: Long): DestinationDto? =
+        destinationRepository.findById(id).orElse(null)?.let { DestinationDto(it) }
 
     fun createDestination(
         destinationDto: DestinationDto

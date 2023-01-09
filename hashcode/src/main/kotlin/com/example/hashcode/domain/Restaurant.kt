@@ -1,6 +1,6 @@
 package com.example.hashcode.domain
 
-class Restaurant(
+data class Restaurant(
     val name: String? = null,
     val street: String? = null
 )
