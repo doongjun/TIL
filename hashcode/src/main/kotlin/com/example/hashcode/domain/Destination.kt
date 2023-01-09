@@ -10,7 +10,7 @@ import javax.persistence.Id
 class Destination(
     @Id @GeneratedValue
     val id: Long? = null,
-    val name: String,
+    var name: String,
     @Convert(converter = RestaurantStringConverter::class)
     val restaurants: List<Restaurant> = emptyList()
 )
