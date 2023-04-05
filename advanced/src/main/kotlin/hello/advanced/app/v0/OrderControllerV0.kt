@@ -5,11 +5,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class OrderControllerV0(
-    private val orderServiceV0: OrderServiceV0
+    private val orderService: OrderServiceV0
 ) {
     @GetMapping("/v0/request")
     fun request(itemId: String): String {
-        orderServiceV0.orderItem(itemId)
+        orderService.orderItem(itemId)
         return "ok"
     }
 }

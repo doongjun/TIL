@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service
 @Service
 class OrderServiceV1(
     private val trace: HelloTraceV1,
-    private val orderRepositoryV1: OrderRepositoryV1
+    private val orderRepository: OrderRepositoryV1
 ) {
     fun orderItem(itemId: String) {
         var status: TraceStatus? = null
         try {
-            status = trace.begin("OrderServiceV1.request()")
-            orderRepositoryV1.save(itemId)
+            status = trace.begin("OrderService.request()")
+            orderRepository.save(itemId)
             trace.end(status)
         } catch (e: Exception) {
             status?.let { trace.exception(it, e) }
