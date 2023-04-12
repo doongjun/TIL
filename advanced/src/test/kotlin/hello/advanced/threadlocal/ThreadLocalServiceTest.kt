@@ -1,19 +1,20 @@
 package hello.advanced.threadlocal
 
 import hello.advanced.threadlocal.code.FieldService
+import hello.advanced.threadlocal.code.ThreadLocalService
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
 
-class FieldServiceTest {
+class ThreadLocalServiceTest {
     private val log = LoggerFactory.getLogger(javaClass)
 
-    private val fieldService = FieldService()
+    private val service = ThreadLocalService()
 
     @Test
     fun field() {
         log.info("main start")
-        val userA = Runnable { fieldService.logic("userA") }
-        val userB = Runnable { fieldService.logic("userB") }
+        val userA = Runnable { service.logic("userA") }
+        val userB = Runnable { service.logic("userB") }
 
         val threadA = Thread(userA)
         threadA.name = "thread-A"
